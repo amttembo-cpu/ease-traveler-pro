@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getPackage, formatZAR, PACKAGES } from "@/lib/packages";
+import { getPackage, formatUSD, PACKAGES } from "@/lib/packages";
 import { PackageCard } from "@/components/PackageCard";
 import { useCart } from "@/lib/cart";
 import { useState } from "react";
@@ -95,7 +95,7 @@ function PackageDetail() {
         <aside className="lg:col-span-1">
           <div className="sticky top-24 bg-card border border-border rounded-2xl p-6 shadow-sm">
             <p className="text-xs text-muted-foreground uppercase tracking-wider">From</p>
-            <p className="text-3xl font-bold text-foreground">{formatZAR(pkg.priceZAR)}</p>
+            <p className="text-3xl font-bold text-foreground">{formatUSD(pkg.priceUSD)}</p>
             <p className="text-xs text-muted-foreground">per person sharing</p>
 
             <label className="block mt-6 text-sm font-medium text-foreground">Travellers</label>
@@ -107,7 +107,7 @@ function PackageDetail() {
 
             <div className="mt-6 pt-6 border-t border-border flex justify-between text-sm">
               <span className="text-muted-foreground">Subtotal</span>
-              <span className="font-semibold text-foreground">{formatZAR(pkg.priceZAR * travelers)}</span>
+              <span className="font-semibold text-foreground">{formatUSD(pkg.priceUSD * travelers)}</span>
             </div>
 
             <button

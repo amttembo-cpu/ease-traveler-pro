@@ -45,7 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const clear = () => setItems([]);
 
   const count = items.length;
-  const total = items.reduce((s, i) => s + i.pkg.priceZAR * i.travelers, 0);
+  const total = items.reduce((s, i) => s + i.pkg.priceUSD * i.travelers, 0);
 
   return (
     <Ctx.Provider value={{ items, add, remove, setTravelers, clear, count, total }}>

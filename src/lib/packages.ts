@@ -5,7 +5,7 @@ export type Pkg = {
   country: string;
   category: "Beach Breaks" | "Adventure" | "City Breaks" | "Cruise" | "Romance" | "Wellness" | "Tours" | "Safari";
   tags: string[];
-  priceZAR: number;
+  priceUSD: number;
   nights: number;
   validFrom: string;
   validTo: string;
@@ -27,7 +27,7 @@ export const PACKAGES: Pkg[] = [
     country: "Tanzania",
     category: "Beach Breaks",
     tags: ["Kids Stay Free", "All Inclusive"],
-    priceZAR: 38065,
+    priceUSD: 38065,
     nights: 7,
     validFrom: "2026-05-04",
     validTo: "2026-06-30",
@@ -45,7 +45,7 @@ export const PACKAGES: Pkg[] = [
     country: "Albania",
     category: "Tours",
     tags: ["Amazing Experience"],
-    priceZAR: 29450,
+    priceUSD: 29450,
     nights: 9,
     validFrom: "2026-06-21",
     validTo: "2026-12-20",
@@ -63,7 +63,7 @@ export const PACKAGES: Pkg[] = [
     country: "Maldives",
     category: "Beach Breaks",
     tags: ["All Inclusive", "Romantic"],
-    priceZAR: 64900,
+    priceUSD: 64900,
     nights: 6,
     validFrom: "2026-04-10",
     validTo: "2026-09-30",
@@ -81,7 +81,7 @@ export const PACKAGES: Pkg[] = [
     country: "Mauritius",
     category: "Beach Breaks",
     tags: ["Kids Stay Free", "Hot Deal"],
-    priceZAR: 24990,
+    priceUSD: 24990,
     nights: 7,
     validFrom: "2026-03-01",
     validTo: "2026-11-30",
@@ -99,7 +99,7 @@ export const PACKAGES: Pkg[] = [
     country: "South Africa",
     category: "Safari",
     tags: ["Safari", "Amazing Experience"],
-    priceZAR: 18750,
+    priceUSD: 18750,
     nights: 4,
     validFrom: "2026-02-01",
     validTo: "2026-12-15",
@@ -117,7 +117,7 @@ export const PACKAGES: Pkg[] = [
     country: "South Africa",
     category: "City Breaks",
     tags: ["Hot Deal"],
-    priceZAR: 12450,
+    priceUSD: 12450,
     nights: 4,
     validFrom: "2026-01-15",
     validTo: "2026-12-20",
@@ -135,7 +135,7 @@ export const PACKAGES: Pkg[] = [
     country: "Thailand",
     category: "Adventure",
     tags: ["Adventure", "Hot Deal"],
-    priceZAR: 27600,
+    priceUSD: 27600,
     nights: 8,
     validFrom: "2026-04-01",
     validTo: "2026-10-31",
@@ -153,7 +153,7 @@ export const PACKAGES: Pkg[] = [
     country: "Greece",
     category: "Romance",
     tags: ["Romantic", "Amazing Experience"],
-    priceZAR: 45200,
+    priceUSD: 45200,
     nights: 6,
     validFrom: "2026-05-15",
     validTo: "2026-09-30",
@@ -171,7 +171,7 @@ export const PACKAGES: Pkg[] = [
     country: "Mediterranean",
     category: "Cruise",
     tags: ["Cruise", "All Inclusive"],
-    priceZAR: 32400,
+    priceUSD: 32400,
     nights: 7,
     validFrom: "2026-06-01",
     validTo: "2026-09-15",
@@ -189,7 +189,7 @@ export const PACKAGES: Pkg[] = [
     country: "Indonesia",
     category: "Wellness",
     tags: ["Amazing Experience"],
-    priceZAR: 26800,
+    priceUSD: 26800,
     nights: 7,
     validFrom: "2026-03-10",
     validTo: "2026-11-20",
@@ -207,7 +207,7 @@ export const PACKAGES: Pkg[] = [
     country: "Zambia",
     category: "Adventure",
     tags: ["Adventure", "Amazing Experience"],
-    priceZAR: 21300,
+    priceUSD: 21300,
     nights: 4,
     validFrom: "2026-04-01",
     validTo: "2026-11-30",
@@ -225,7 +225,7 @@ export const PACKAGES: Pkg[] = [
     country: "UAE",
     category: "City Breaks",
     tags: ["Hot Deal", "Amazing Experience"],
-    priceZAR: 19990,
+    priceUSD: 19990,
     nights: 4,
     validFrom: "2026-02-01",
     validTo: "2026-12-15",
@@ -252,7 +252,7 @@ export const FILTER_TAGS = [
   "Beach", "Safari", "Romantic", "Cruise", "Adventure",
 ];
 
-export const formatZAR = (n: number) =>
-  "R" + n.toLocaleString("en-ZA").replace(/,/g, " ");
+export const formatUSD = (n: number) =>
+  "$" + n.toLocaleString("en-US");
 
 export const getPackage = (id: string) => PACKAGES.find((p) => p.id === id);

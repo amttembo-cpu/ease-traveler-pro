@@ -13,7 +13,7 @@ export const Route = createFileRoute("/booking-conditions")({
         <li>For bookings made within 60 days of departure, full payment is required at checkout.</li>
       </ul>
       <h2>2. Pricing and currency</h2>
-      <p>Prices are quoted per person sharing in South African Rand (ZAR) and include the components listed in the package "What's Included" section. Until paid in full, prices remain subject to changes in airfares, fuel surcharges, government taxes and exchange rates.</p>
+      <p>Prices are quoted per person sharing in US Dollar (USD) and include the components listed in the package "What's Included" section. Until paid in full, prices remain subject to changes in airfares, fuel surcharges, government taxes and exchange rates.</p>
       <h2>3. Travel documents</h2>
       <p>You must hold a passport valid for at least six months beyond your return date and obtain any required visas. We can advise but the responsibility lies with you.</p>
       <h2>4. Health and vaccinations</h2>

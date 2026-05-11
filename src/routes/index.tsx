@@ -37,7 +37,7 @@ function Index() {
         p.country.toLowerCase().includes(q),
       );
     }
-    if (sort === "price") list.sort((a, b) => a.priceZAR - b.priceZAR);
+    if (sort === "price") list.sort((a, b) => a.priceUSD - b.priceUSD);
     if (sort === "deals") list = list.filter((p) => p.tags.includes("Hot Deal")).concat(list.filter((p) => !p.tags.includes("Hot Deal")));
     if (sort === "recent") list.reverse();
     return list;

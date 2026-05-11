@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCart } from "@/lib/cart";
-import { formatZAR } from "@/lib/packages";
+import { formatUSD } from "@/lib/packages";
 import { useState } from "react";
 import { Lock, CheckCircle2 } from "lucide-react";
 
@@ -118,21 +118,21 @@ function Checkout() {
               {items.map(({ pkg, travelers }) => (
                 <li key={pkg.id} className="flex justify-between gap-3">
                   <span className="text-foreground">{pkg.title} <span className="text-muted-foreground">× {travelers}</span></span>
-                  <span className="font-medium text-foreground shrink-0">{formatZAR(pkg.priceZAR * travelers)}</span>
+                  <span className="font-medium text-foreground shrink-0">{formatUSD(pkg.priceUSD * travelers)}</span>
                 </li>
               ))}
             </ul>
             <div className="border-t border-border mt-4 pt-4 space-y-1 text-sm">
-              <div className="flex justify-between text-muted-foreground"><span>Subtotal</span><span>{formatZAR(total)}</span></div>
-              <div className="flex justify-between text-muted-foreground"><span>Booking fee</span><span>{formatZAR(450)}</span></div>
-              <div className="flex justify-between font-semibold text-foreground text-base mt-2"><span>Total</span><span>{formatZAR(total + 450)}</span></div>
+              <div className="flex justify-between text-muted-foreground"><span>Subtotal</span><span>{formatUSD(total)}</span></div>
+              <div className="flex justify-between text-muted-foreground"><span>Booking fee</span><span>{formatUSD(450)}</span></div>
+              <div className="flex justify-between font-semibold text-foreground text-base mt-2"><span>Total</span><span>{formatUSD(total + 450)}</span></div>
             </div>
             <button
               type="submit"
               disabled={submitting}
               className="mt-6 w-full bg-primary text-primary-foreground font-semibold py-3 rounded-full hover:bg-primary-dark disabled:opacity-60"
             >
-              {submitting ? "Processing…" : `Pay ${formatZAR(total + 450)}`}
+              {submitting ? "Processing…" : `Pay ${formatUSD(total + 450)}`}
             </button>
             <p className="mt-3 text-[11px] text-muted-foreground text-center">By paying you accept our <Link to="/terms" className="underline">Terms</Link> and <Link to="/booking-conditions" className="underline">Booking Conditions</Link>.</p>
           </div>

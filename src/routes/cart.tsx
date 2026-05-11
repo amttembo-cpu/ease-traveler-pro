@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCart } from "@/lib/cart";
-import { formatZAR } from "@/lib/packages";
+import { formatUSD } from "@/lib/packages";
 import { Trash2, ShoppingBag } from "lucide-react";
 
 export const Route = createFileRoute("/cart")({
@@ -42,7 +42,7 @@ function CartPage() {
               <div className="flex-1 min-w-0">
                 <Link to="/packages/$id" params={{ id: pkg.id }} className="font-semibold text-foreground hover:text-primary line-clamp-1">{pkg.title}</Link>
                 <p className="text-sm text-muted-foreground">{pkg.destination}, {pkg.country}</p>
-                <p className="text-sm text-muted-foreground">{pkg.nights} nights · {formatZAR(pkg.priceZAR)} pps</p>
+                <p className="text-sm text-muted-foreground">{pkg.nights} nights · {formatUSD(pkg.priceUSD)} pps</p>
 
                 <div className="mt-3 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -52,7 +52,7 @@ function CartPage() {
                     <button onClick={() => setTravelers(pkg.id, travelers + 1)} className="w-7 h-7 rounded-full border border-border hover:bg-muted">+</button>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-semibold text-foreground">{formatZAR(pkg.priceZAR * travelers)}</span>
+                    <span className="font-semibold text-foreground">{formatUSD(pkg.priceUSD * travelers)}</span>
                     <button onClick={() => remove(pkg.id)} aria-label="Remove" className="text-muted-foreground hover:text-destructive p-1">
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -69,13 +69,13 @@ function CartPage() {
           <div className="sticky top-24 bg-card border border-border rounded-2xl p-6">
             <h2 className="font-semibold text-lg text-foreground">Order summary</h2>
             <div className="mt-4 space-y-2 text-sm">
-              <Row label="Subtotal" value={formatZAR(total)} />
-              <Row label="Booking fee" value={formatZAR(450)} />
+              <Row label="Subtotal" value={formatUSD(total)} />
+              <Row label="Booking fee" value={formatUSD(450)} />
               <Row label="Taxes & levies" value="Included" />
             </div>
             <div className="border-t border-border mt-4 pt-4 flex justify-between font-semibold text-foreground">
               <span>Total due today</span>
-              <span>{formatZAR(total + 450)}</span>
+              <span>{formatUSD(total + 450)}</span>
             </div>
             <Link to="/checkout" className="mt-6 block text-center w-full bg-primary text-primary-foreground font-semibold py-3 rounded-full hover:bg-primary-dark">
               Proceed to checkout

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/terms")({
         <li>Pricing on the Site is indicative and may change up to the moment of confirmation due to currency, supplier or tax adjustments.</li>
       </ul>
       <h2>3. Pricing and payment</h2>
-      <p>Prices are quoted in South African Rand (ZAR) per person sharing unless otherwise stated and exclude travel insurance, optional excursions, and personal expenses. We accept Visa, Mastercard and American Express. A non-refundable booking fee applies as displayed at checkout.</p>
+      <p>Prices are quoted in US Dollar (USD) per person sharing unless otherwise stated and exclude travel insurance, optional excursions, and personal expenses. We accept Visa, Mastercard and American Express. A non-refundable booking fee applies as displayed at checkout.</p>
       <h2>4. Changes by you</h2>
       <p>Requests to change a confirmed booking are subject to supplier policies and an administration fee. We will pass through any unavoidable supplier charges at cost.</p>
       <h2>5. Cancellations</h2>

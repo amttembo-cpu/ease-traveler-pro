@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { Pkg } from "@/lib/packages";
-import { formatZAR } from "@/lib/packages";
+import { formatUSD } from "@/lib/packages";
 import { Calendar, MapPin } from "lucide-react";
 
 export function PackageCard({ pkg }: { pkg: Pkg }) {
@@ -56,7 +56,7 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
           <div>
             <p className="text-xs text-muted-foreground">from</p>
             <p className="text-xl font-bold text-foreground">
-              {formatZAR(pkg.priceZAR)} <span className="text-xs font-normal text-muted-foreground">pps</span>
+              {formatUSD(pkg.priceUSD)} <span className="text-xs font-normal text-muted-foreground">pps</span>
             </p>
           </div>
           <span className="text-sm font-medium text-primary group-hover:underline">View Deal →</span>
