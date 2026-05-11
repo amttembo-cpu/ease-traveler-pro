@@ -70,7 +70,7 @@ function PackageDetail() {
           <section>
             <h2 className="text-2xl font-semibold text-foreground">What's included</h2>
             <ul className="mt-4 grid sm:grid-cols-2 gap-3">
-              {pkg.includes.map((i) => (
+              {pkg.includes.map((i: string) => (
                 <li key={i} className="flex items-start gap-2 text-foreground">
                   <Check className="w-5 h-5 text-primary mt-0.5 shrink-0" /> {i}
                 </li>
