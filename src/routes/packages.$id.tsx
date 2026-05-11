@@ -51,7 +51,7 @@ function PackageDetail() {
         <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 text-white max-w-7xl mx-auto">
           <div className="flex flex-wrap gap-2 mb-3">
             <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">{pkg.category}</span>
-            {pkg.tags.map((t) => (
+            {pkg.tags.map((t: string) => (
               <span key={t} className="bg-white/20 backdrop-blur text-white text-xs px-3 py-1 rounded-full">{t}</span>
             ))}
           </div>
