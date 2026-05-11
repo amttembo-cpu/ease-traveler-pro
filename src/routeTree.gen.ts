@@ -9,13 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as RefundRouteImport } from './routes/refund'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as BookingConditionsRouteImport } from './routes/booking-conditions'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesIdRouteImport } from './routes/packages.$id'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -29,6 +54,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingConditionsRoute = BookingConditionsRouteImport.update({
+  id: '/booking-conditions',
+  path: '/booking-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -50,26 +80,41 @@ const PackagesIdRoute = PackagesIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/booking-conditions': typeof BookingConditionsRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/terms': typeof TermsRoute
   '/packages/$id': typeof PackagesIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/booking-conditions': typeof BookingConditionsRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/terms': typeof TermsRoute
   '/packages/$id': typeof PackagesIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/booking-conditions': typeof BookingConditionsRoute
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/refund': typeof RefundRoute
+  '/terms': typeof TermsRoute
   '/packages/$id': typeof PackagesIdRoute
 }
 export interface FileRouteTypes {
@@ -77,33 +122,87 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/booking-conditions'
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/cookies'
+    | '/privacy'
+    | '/refund'
+    | '/terms'
     | '/packages/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/cart' | '/checkout' | '/contact' | '/packages/$id'
+  to:
+    | '/'
+    | '/about'
+    | '/booking-conditions'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/cookies'
+    | '/privacy'
+    | '/refund'
+    | '/terms'
+    | '/packages/$id'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/booking-conditions'
     | '/cart'
     | '/checkout'
     | '/contact'
+    | '/cookies'
+    | '/privacy'
+    | '/refund'
+    | '/terms'
     | '/packages/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BookingConditionsRoute: typeof BookingConditionsRoute
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  RefundRoute: typeof RefundRoute
+  TermsRoute: typeof TermsRoute
   PackagesIdRoute: typeof PackagesIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -123,6 +222,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-conditions': {
+      id: '/booking-conditions'
+      path: '/booking-conditions'
+      fullPath: '/booking-conditions'
+      preLoaderRoute: typeof BookingConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -152,9 +258,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BookingConditionsRoute: BookingConditionsRoute,
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
+  PrivacyRoute: PrivacyRoute,
+  RefundRoute: RefundRoute,
+  TermsRoute: TermsRoute,
   PackagesIdRoute: PackagesIdRoute,
 }
 export const routeTree = rootRouteImport
